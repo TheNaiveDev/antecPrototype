@@ -1,0 +1,530 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#574500",
+              "inverse-primary": "#a5d0b9",
+              "primary-fixed-dim": "#a5d0b9",
+              "on-primary-container": "#86af99",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#241a00",
+              "inverse-surface": "#2f312f",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              surface: "#f9faf6",
+              "surface-container-high": "#e8e8e5",
+              "on-tertiary-fixed": "#331111",
+              "surface-tint": "#3f6653",
+              "on-primary-fixed-variant": "#274e3d",
+              "on-secondary-container": "#745c00",
+              "surface-container-lowest": "#ffffff",
+              outline: "#717973",
+              "surface-dim": "#dadad7",
+              error: "#ba1a1a",
+              "on-surface": "#1a1c1a",
+              "secondary-fixed-dim": "#e9c349",
+              "tertiary-fixed": "#ffdad8",
+              "surface-container-low": "#f3f4f1",
+              "on-tertiary-container": "#d29895",
+              "tertiary-fixed-dim": "#f5b7b4",
+              "surface-variant": "#e2e3e0",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f0f1ee",
+              "on-surface-variant": "#414844",
+              secondary: "#735c00",
+              "primary-container": "#1b4332",
+              "surface-bright": "#f9faf6",
+              "error-container": "#ffdad6",
+              background: "#f9faf6",
+              "surface-container-highest": "#e2e3e0",
+              tertiary: "#401b1b",
+              "secondary-container": "#fed65b",
+              "on-error": "#ffffff",
+              "primary-fixed": "#c1ecd4",
+              "on-background": "#1a1c1a",
+              primary: "#012d1d",
+              "surface-container": "#eeeeeb",
+              "tertiary-container": "#5a302f",
+              "outline-variant": "#c1c8c2",
+              "on-primary-fixed": "#002114",
+              "on-tertiary-fixed-variant": "#673a39",
+              "secondary-fixed": "#ffe088",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              md: "24px",
+              lg: "48px",
+              "container-max": "1280px",
+              gutter: "24px",
+              xs: "4px",
+              xl: "80px",
+              sm: "12px",
+              base: "8px",
+            },
+            fontFamily: {
+              h3: ["Newsreader"],
+              h2: ["Newsreader"],
+              h1: ["Newsreader"],
+              "body-lg": ["Inter"],
+              "body-md": ["Inter"],
+              "label-caps": ["Inter"],
+            },
+            fontSize: {
+              h3: ["24px", { lineHeight: "1.4", fontWeight: "500" }],
+              h2: [
+                "36px",
+                {
+                  lineHeight: "1.3",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              h1: [
+                "48px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "label-caps": [
+                "12px",
+                { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "700" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        background-color: #f9faf6;
+        color: #1a1c1a;
+      }
+    </style>
+  </head>
+  <body class="font-body-md text-on-surface">
+    <!-- TopNavBar -->
+    <nav
+      class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200 shadow-[0_2px_15px_-3px_rgba(27,67,50,0.05)]"
+    >
+      <div
+        class="max-w-[1280px] mx-auto flex justify-between items-center px-12 h-24"
+      >
+        <div
+          class="text-2xl font-bold tracking-widest text-emerald-900 uppercase"
+        >
+          ANTEC GROUP
+        </div>
+        <div
+          class="hidden md:flex gap-md items-center font-serif Newsreader text-lg tracking-tight"
+        >
+          <a
+            class="text-stone-500 hover:text-emerald-800 transition-colors"
+            href="./herbalcenter.html"
+            >Herbal Centre</a
+          >
+          <a
+            class="text-emerald-900 font-semibold border-b-2 border-emerald-900 pb-1"
+            href="./antechomes.html"
+            >Antec Homes</a
+          >
+          <a
+            class="text-stone-500 hover:text-emerald-800 transition-colors"
+            href="./aboutus.html"
+            >About Us</a
+          >
+          <a
+            class="text-stone-500 hover:text-emerald-800 transition-colors"
+            href="./contact.html"
+            >Contact</a
+          >
+        </div>
+        <div class="flex items-center gap-md">
+          <button
+            class="material-symbols-outlined text-emerald-900 cursor-pointer active:scale-95 transition-transform"
+          >
+            search
+          </button>
+          <button
+            class="bg-primary-container text-on-primary-container px-md py-sm font-label-caps uppercase tracking-wider rounded-lg hover:bg-primary transition-all duration-300"
+          >
+            Group Portal
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative h-[819px] flex items-center overflow-hidden bg-primary"
+      >
+        <div class="absolute inset-0 opacity-40">
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A grand luxury residential villa in Ghana featuring modern architectural lines, floor-to-ceiling glass windows, and a pristine infinity pool reflecting a golden sunset. The lighting is warm and cinematic, emphasizing the sophisticated prestige of the property. The color palette is dominated by deep forest greens and golden highlights, creating an atmosphere of reliable exclusivity and high-end living."
+            src="/images/wallpaper.jpg"
+          />
+        </div>
+        <div class="relative max-w-[1280px] mx-auto px-12 w-full text-white">
+          <div class="max-w-2xl border-l-4 border-secondary-container pl-md">
+            <span
+              class="font-label-caps text-secondary-container uppercase mb-xs block"
+              >Premium Real Estate</span
+            >
+            <h1 class="font-h1 text-h1 mb-md leading-tight">
+              Antec Homes: Quality Living in Ghana
+            </h1>
+            <p class="font-body-lg text-body-lg mb-lg opacity-90">
+              Crafting sophisticated residential spaces that blend modern luxury
+              with enduring reliability. Experience the prestige of West
+              Africa's finest developments.
+            </p>
+            <div class="flex gap-md">
+              <button
+                class="bg-secondary text-white px-lg py-md font-label-caps uppercase tracking-widest hover:bg-on-secondary-fixed-variant transition-all"
+              >
+                Explore Properties
+              </button>
+              <button
+                class="border border-white/50 backdrop-blur-sm px-lg py-md font-label-caps uppercase tracking-widest hover:bg-white hover:text-primary transition-all"
+              >
+                Our Legacy
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Services Section: Bento Grid -->
+      <section class="py-xl max-w-[1280px] mx-auto px-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <div
+            class="md:col-span-2 p-xl bg-white border border-outline-variant shadow-sm flex flex-col justify-between"
+          >
+            <div>
+              <span
+                class="material-symbols-outlined text-secondary text-4xl mb-md"
+                >apartment</span
+              >
+              <h2 class="font-h2 text-h2 text-primary mb-sm">
+                Property Management
+              </h2>
+              <p class="font-body-md text-stone-600 mb-lg max-w-md">
+                Comprehensive asset care for high-net-worth investors. From
+                maintenance to tenant relations, we ensure your investment
+                maintains its premium value through clinical precision and
+                professional stewardship.
+              </p>
+            </div>
+            <a
+              class="font-label-caps text-secondary flex items-center gap-xs group"
+              href="#"
+            >
+              VIEW MANAGEMENT PORTFOLIO
+              <span
+                class="material-symbols-outlined transition-transform group-hover:translate-x-1"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+          <div
+            class="p-xl bg-primary-container text-white border border-primary flex flex-col justify-between"
+          >
+            <div>
+              <span
+                class="material-symbols-outlined text-secondary-container text-4xl mb-md"
+                >sell</span
+              >
+              <h2 class="font-h2 text-h2 mb-sm">Exclusive Sales</h2>
+              <p class="font-body-md opacity-80 mb-lg">
+                Access to off-market residential concepts and premium land
+                acquisitions across Ghana's prime districts.
+              </p>
+            </div>
+            <button
+              class="border border-secondary-container text-secondary-container py-sm px-md font-label-caps uppercase hover:bg-secondary-container hover:text-primary transition-all"
+            >
+              Inquire Now
+            </button>
+          </div>
+          <div
+            class="p-xl bg-surface-container border border-outline-variant flex flex-col justify-between"
+          >
+            <div>
+              <span
+                class="material-symbols-outlined text-primary text-4xl mb-md"
+                >key</span
+              >
+              <h3 class="font-h3 text-h3 text-primary mb-sm">
+                Premium Rentals
+              </h3>
+              <p class="font-body-md text-stone-600">
+                Short-term and long-term residency in curated luxury units for
+                diplomats and corporate executives.
+              </p>
+            </div>
+            <a
+              class="font-label-caps text-primary border-b border-primary/20 pb-xs inline-block w-fit"
+              href="#"
+              >BROWSE RENTALS</a
+            >
+          </div>
+          <div class="md:col-span-2 h-[400px] relative overflow-hidden group">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              data-alt="A serene morning view of a contemporary luxury estate garden in Accra, Ghana. The architecture features clean white walls, accented by rich mahogany wood and local stone. Lush tropical greenery is perfectly manicured, bathed in the soft, diffused light of dawn. The scene evokes a sense of tranquil prestige and meticulously maintained luxury living, aligned with the Antec Homes brand identity."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2W_gTtOhQLtF5ACL44UUOn7gsg3wMcsuA1RenqU2ihvM03klM6xKIWe48g4FFPZtEgVzs4lrPlYK97_JCxNY11gxnkVF8a8MEz6mm1nBqK5S2RNm_782JR76oFvqeHAiCPm0aFJfcGQwtUSklgIeuPCgwQ4YWdwNsc1buf234JX8709VUmew5z02vpp7iyhkDTJuMUnf8HhySoiQmRMDynRCAS6tGMm4ZTpmrKW4bC9YStxcwUrHfDl8QLqwH70LZWjzJAWTEJm5X"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-xl"
+            >
+              <span class="font-label-caps text-secondary-container"
+                >THE CANTONMENTS PROJECT</span
+              >
+              <h3 class="font-h2 text-h2 text-white">
+                Redefining Urban Elegance
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Minimalist Gallery Grid -->
+      <section class="bg-surface-container-low py-xl">
+        <div class="max-w-[1280px] mx-auto px-12">
+          <div class="text-center mb-xl">
+            <h2 class="font-h2 text-h2 text-primary mb-sm">
+              Development Concepts
+            </h2>
+            <div class="w-24 h-1 bg-secondary mx-auto"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+            <!-- Concept 1 -->
+            <div class="space-y-sm">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img
+                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  data-alt="Modern architectural rendering of a minimalist apartment complex. The structure uses high-contrast light grey concrete and dark bronze window frames. Set against a clear blue sky, the building is surrounded by architecturally designed landscaping. The aesthetic is clean, professional, and reflects a high-end corporate minimalist style with heavy focus on symmetry and balance."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhS5CUcdZTp3uptH4bGgF0bb4_Y9-RLWSF488dJUsrEdZGx6WT3aJt7p2ErtKxWpQUyvT1ZeaDIdwcf3LMNtNLFrxfyvvgss2jpvk9FRz9ctugKLgVzf_QSOkG48hEPTg67zIO6VJGtXtjDlurUxeieevot70dTic3soqmkflPnXwoSQB1lcGSdTmGrK2BtZ1MXMnFFlLW2W9x9cofS3mjh5CN6dPIhLv0nixaih-8ty79ba4mHQOmiqWqIZo864NDUe1K5pjHhjU3"
+                />
+              </div>
+              <h4 class="font-label-caps text-primary">
+                Concept Alpha: Vertical Living
+              </h4>
+            </div>
+            <!-- Concept 2 -->
+            <div class="space-y-sm mt-lg">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img
+                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  data-alt="An expansive luxury estate with a gold-leaf accented entrance gate. The driveway is paved with light grey stone, leading to a mansion with clinical white surfaces and large open terraces. Soft, warm ambient lighting illuminates the architectural details under a twilight sky. The image conveys established trust, longevity, and high-fidelity residential design."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmkH5VfsE4fhNUdc3KpydEwTgA0NeNhHzNZAJ1HTLZmnpZwBWX-7G7OAvRSaRdkKJzcUU3hh6OagFPl1MIFQtMiUP3Jhjyx0V50yXGOji2wXpHl0u6YfZX6RwdKsX1_FFdU6JWKCvOxTzPyhC7FdBgbd7p3XY5_FkB-aYLmVAFkRUNF8CTlLarOyntnU0_8sZZxRUVh6rUmdyIsnIyt2htVUT5nUui8VrBVoIoK9XOjSgd41NuNkt_ahtKsAjMR21kV-3pjBCRETnM"
+                />
+              </div>
+              <h4 class="font-label-caps text-primary">
+                Concept Beta: Estate Grandeur
+              </h4>
+            </div>
+            <!-- Concept 3 -->
+            <div class="space-y-sm">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img
+                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  data-alt="A minimalist interior shot of a luxury living room. It features a neutral color palette with deep green velvet furniture and gold-trimmed marble coffee tables. Large windows look out onto a serene coastal view of Ghana. The mood is calm, airy, and clinical in its precision, embodying the Reliable Prestige of Antec Homes."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx5yWnIyaTbmg5auEN09SVno_77joqTGmDEFyXrv-v7YmIXfXC2F2RJ-dbUvkilomx3_NqiTskFfGkA8YjrgiY_hwFWE4ggV5Xpfnjk9PcMb_slkjXJTny_xNTsucQRT071TyAUKAx4yMfbfUbBjn47LMP1iKAcMCo4NLhfWVsi8gPKoMeCBuQTfzmK3YVEGA3nqpDwWxl6oG1hlWY7tMhz6eVZmT0lv22eJcol_yz0vBiOQYVAqRZO3QfGSLfvaCpOPmf2HB6zaIY"
+                />
+              </div>
+              <h4 class="font-label-caps text-primary">
+                Interior: Minimalist Sanctuary
+              </h4>
+            </div>
+            <!-- Concept 4 -->
+            <div class="space-y-sm mt-lg">
+              <div class="aspect-[4/5] overflow-hidden">
+                <img
+                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  data-alt="A striking detail of a modern skyscraper's glass facade reflecting the blue sky. The lines are sharp and vertical, suggesting strength and corporate stability. The lighting is bright and high-key, aligning with the light-mode minimalist aesthetic. This represents the commercial development prowess of Antec Group in the real estate sector."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW5ZFpy6H9dq82YqCUfx-pjGyJkBQ5lYnuaiUjKNvbPnG4T0QB7wxXp41xR6Q25iLa-lVHDpO9B2JiicJzVt3TzimFmNh1xfQOb11Iz6LDRYWI2LiD01JQsHOtPcy1ddyXM6AaBSvap3Uj3aKPco1OD6q8bxUEklzWwv1nicE8mSZhqxU8fegRIM6IeS18PDzJFEI1cpxAWj0LGc2AHD_xz4Pds19iwJeITqaB1hrSa1taQZ1wJl_Fu43rdam3mySYx9JLcMfQQaM6"
+                />
+              </div>
+              <h4 class="font-label-caps text-primary">
+                Concept Gamma: Corporate Hub
+              </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Inquiry Form Section -->
+      <section
+        class="py-xl max-w-[1280px] mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-xl items-center"
+      >
+        <div>
+          <h2 class="font-h2 text-h2 text-primary mb-md">
+            Start Your Journey with Antec Homes
+          </h2>
+          <p class="font-body-lg text-stone-600 mb-lg">
+            Whether you are looking to acquire your dream residence or require
+            professional management for your property portfolio, our consultants
+            are ready to assist with clinical expertise.
+          </p>
+          <div class="space-y-md">
+            <div class="flex gap-md items-start">
+              <span class="material-symbols-outlined text-secondary"
+                >location_on</span
+              >
+              <div>
+                <h4 class="font-label-caps text-primary">HEADQUARTERS</h4>
+                <p class="font-body-md text-stone-500">
+                  Independence Avenue, Accra, Ghana
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-md items-start">
+              <span class="material-symbols-outlined text-secondary">mail</span>
+              <div>
+                <h4 class="font-label-caps text-primary">EMAIL US</h4>
+                <p class="font-body-md text-stone-500">
+                  concierge@antechomes.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-xl border border-stone-200 shadow-xl">
+          <form class="space-y-md">
+            <div>
+              <label class="font-label-caps text-primary block mb-xs"
+                >FULL NAME</label
+              >
+              <input
+                class="w-full border border-stone-200 p-sm focus:border-emerald-900 focus:ring-0 outline-none transition-colors"
+                type="text"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-md">
+              <div>
+                <label class="font-label-caps text-primary block mb-xs"
+                  >EMAIL ADDRESS</label
+                >
+                <input
+                  class="w-full border border-stone-200 p-sm focus:border-emerald-900 focus:ring-0 outline-none transition-colors"
+                  type="email"
+                />
+              </div>
+              <div>
+                <label class="font-label-caps text-primary block mb-xs"
+                  >PHONE NUMBER</label
+                >
+                <input
+                  class="w-full border border-stone-200 p-sm focus:border-emerald-900 focus:ring-0 outline-none transition-colors"
+                  type="tel"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="font-label-caps text-primary block mb-xs"
+                >INQUIRY TYPE</label
+              >
+              <select
+                class="w-full border border-stone-200 p-sm focus:border-emerald-900 focus:ring-0 outline-none transition-colors bg-white"
+              >
+                <option>Property Sales</option>
+                <option>Residential Rental</option>
+                <option>Management Services</option>
+                <option>Development Partnership</option>
+              </select>
+            </div>
+            <div>
+              <label class="font-label-caps text-primary block mb-xs"
+                >MESSAGE</label
+              >
+              <textarea
+                class="w-full border border-stone-200 p-sm focus:border-emerald-900 focus:ring-0 outline-none transition-colors"
+                rows="4"
+              ></textarea>
+            </div>
+            <button
+              class="w-full bg-primary text-white py-md font-label-caps uppercase tracking-widest hover:bg-emerald-900 transition-colors shadow-lg"
+            >
+              Submit Inquiry
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-stone-50 border-t border-stone-200 mt-20">
+      <div
+        class="max-w-[1280px] mx-auto py-16 px-12 flex flex-col md:flex-row justify-between items-center gap-8"
+      >
+        <div class="flex flex-col items-center md:items-start gap-md">
+          <div class="text-xl font-bold text-emerald-900">ANTEC GROUP</div>
+          <p
+            class="font-serif Newsreader text-sm uppercase tracking-wider text-stone-500 text-center md:text-left"
+          >
+            © 2024 ANTEC GROUP OF COMPANIES. Reliable Prestige in Healthcare
+            &amp; Real Estate.
+          </p>
+        </div>
+        <div
+          class="flex gap-lg font-serif Newsreader text-sm uppercase tracking-wider"
+        >
+          <a
+            class="text-stone-500 hover:text-emerald-700 hover:underline transition-all"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="text-stone-500 hover:text-emerald-700 hover:underline transition-all"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="text-stone-500 hover:text-emerald-700 hover:underline transition-all"
+            href="#"
+            >Investor Relations</a
+          >
+          <a
+            class="text-stone-500 hover:text-emerald-700 hover:underline transition-all"
+            href="#"
+            >Global Offices</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
