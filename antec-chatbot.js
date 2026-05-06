@@ -447,24 +447,18 @@ Do NOT make up specific property prices, stock availability, medical advice, or 
     showTyping();
 
     try {
-      const res = await fetch(
-        "https://router.huggingface.co/novita/v3/openai/chat/completions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer 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",
-          },
-          body: JSON.stringify({
-            model: "meta-llama/llama-3.1-8b-instruct",
-            max_tokens: 500,
-            messages: [
-              { role: "system", content: SYSTEM_PROMPT },
-              ...conversationHistory,
-            ],
-          }),
-        },
-      );
+      const res = await fetch("/.netlify/functions/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "meta-llama/llama-3.1-8b-instruct",
+          max_tokens: 150,
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            ...conversationHistory,
+          ],
+        }),
+      });
 
       const data = await res.json();
       console.log("HF response:", data);
