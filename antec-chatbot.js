@@ -447,27 +447,35 @@ Do NOT make up specific property prices, stock availability, medical advice, or 
     showTyping();
 
     try {
-      const res = await fetch("/.netlify/functions/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-3-5-sonnet-20240620",
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: conversationHistory,
-        }),
-      });
+      const res = await fetch(
+        "https://router.huggingface.co/novita/v3/openai/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer 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",
+          },
+          body: JSON.stringify({
+            model: "meta-llama/llama-3.1-8b-instruct",
+            max_tokens: 500,
+            messages: [
+              { role: "system", content: SYSTEM_PROMPT },
+              ...conversationHistory,
+            ],
+          }),
+        },
+      );
 
       const data = await res.json();
+      console.log("HF response:", data);
       const reply =
-        data.content?.[0]?.text ||
-        "I'm sorry, I couldn't process that. Please try again or contact us at info@antecgroup.com.";
+        data.choices?.[0]?.message?.content ||
+        "I'm sorry, I couldn't process that. Please contact us at info@antecgroup.com.";
 
       removeTyping();
       appendMessage("bot", reply);
       conversationHistory.push({ role: "assistant", content: reply });
 
-      // Context-aware quick replies
       const lower = text.toLowerCase();
       if (
         lower.includes("home") ||
@@ -512,6 +520,7 @@ Do NOT make up specific property prices, stock availability, medical advice, or 
       }
     } catch (e) {
       removeTyping();
+      console.error("Chatbot error:", e);
       appendMessage(
         "bot",
         "Apologies, I'm having trouble connecting. Please reach us directly at info@antecgroup.com or call +233 302 000 000.",
