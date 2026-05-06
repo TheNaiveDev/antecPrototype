@@ -1,7 +1,3 @@
-// netlify/functions/chat.js
-// Netlify automatically runs this as a serverless function.
-// Your API key stays here on the server — never exposed to the browser.
-
 export async function handler(event) {
   if (event.httpMethod === "OPTIONS") {
     return {
@@ -11,7 +7,6 @@ export async function handler(event) {
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
       },
-      body: "",
     };
   }
 
@@ -22,6 +17,12 @@ export async function handler(event) {
   try {
     const body = JSON.parse(event.body);
 
+    // 🔥 FIX: transform messages into Anthropic format
+    const formattedMessages = body.messages.map((msg) => ({
+      role: msg.role,
+      content: [{ type: "text", text: msg.content }],
+    }));
+
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -29,7 +30,12 @@ export async function handler(event) {
         "x-api-key": process.env.ANTHROPIC_API_KEY,
         "anthropic-version": "2023-06-01",
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        model: "claude-3-5-sonnet-20240620", // ✅ FIXED
+        max_tokens: 1000,
+        system: body.system,
+        messages: formattedMessages, // ✅ FIXED
+      }),
     });
 
     const data = await response.json();
@@ -45,7 +51,10 @@ export async function handler(event) {
   } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Something went wrong." }),
+      body: JSON.stringify({
+        error: "Something went wrong",
+        details: err.message,
+      }),
     };
   }
 }
