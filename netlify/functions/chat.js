@@ -1,3 +1,5 @@
+// netlify/functions/chat.js
+
 export async function handler(event) {
   if (event.httpMethod === "OPTIONS") {
     return {
@@ -7,6 +9,7 @@ export async function handler(event) {
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
       },
+      body: "",
     };
   }
 
@@ -17,26 +20,17 @@ export async function handler(event) {
   try {
     const body = JSON.parse(event.body);
 
-    // 🔥 FIX: transform messages into Anthropic format
-    const formattedMessages = body.messages.map((msg) => ({
-      role: msg.role,
-      content: [{ type: "text", text: msg.content }],
-    }));
-
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
+    const response = await fetch(
+      "https://router.huggingface.co/novita/v3/openai/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.HF_TOKEN}`,
+        },
+        body: JSON.stringify(body),
       },
-      body: JSON.stringify({
-        model: "claude-3-5-sonnet-20240620", // ✅ FIXED
-        max_tokens: 1000,
-        system: body.system,
-        messages: formattedMessages, // ✅ FIXED
-      }),
-    });
+    );
 
     const data = await response.json();
 
@@ -51,10 +45,7 @@ export async function handler(event) {
   } catch (err) {
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        error: "Something went wrong",
-        details: err.message,
-      }),
+      body: JSON.stringify({ error: "Something went wrong." }),
     };
   }
 }
